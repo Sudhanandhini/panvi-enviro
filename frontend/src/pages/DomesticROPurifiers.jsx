@@ -168,8 +168,8 @@ export default function DomesticROPurifiers() {
               {[
                 { val: '99%', label: 'TDS Removal', bg: '#f0f9ff', border: '#bae6fd', col: '#1a8fd1' },
                 { val: '4-Stage', label: 'Purification Process', bg: '#f0fdf4', border: '#bbf7d0', col: '#8dc63f' },
-                { val: '6–15 LPH', label: 'Capacity Range', bg: '#fefce8', border: '#fde68a', col: '#d97706' },
-                { val: 'AMC', label: 'Annual Maintenance', bg: '#fdf4ff', border: '#e9d5ff', col: '#9333ea' },
+                { val: '6–15 LPH', label: 'Capacity Range', bg: '#f0fdf4', border: '#bbf7d0', col: '#8dc63f' },
+                { val: 'AMC', label: 'Annual Maintenance', bg: '#f0f9ff', border: '#bae6fd', col: '#1a8fd1' },
               ].map((s, i) => (
                 <div key={i} style={{ background: s.bg, border: `1px solid ${s.border}`, borderRadius: '8px', padding: '20px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'Raleway,sans-serif', fontWeight: 900, fontSize: '22px', color: s.col }}>{s.val}</div>

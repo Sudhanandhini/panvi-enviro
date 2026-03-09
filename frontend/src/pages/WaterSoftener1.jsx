@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import WaterSoftenerSlider from "./WaterSoftenerSlider"
 
 /* ── Reusable Accordion ── */
 function Accordion({ items }) {
@@ -161,20 +162,24 @@ export default function WaterSoftener1() {
         </div>
       </div>
 
+    
+
       {/* ── WHAT IS A WATER SOFTENER ── */}
-      <section style={{ background: '#fff', padding: '60px 16px' }}>
-        <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '40px', alignItems: 'center' }}>
-            <div>
-              <SectionHeading icon="🔹" title="What is a Water Softener?" />
-              <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: '1.8', marginBottom: '16px' }}>
-                A Water Softener removes hardness (Calcium &amp; Magnesium salts) using <strong style={{ color: '#1a8fd1' }}>Ion Exchange Resin Technology</strong>, converting hard water into soft water suitable for domestic and industrial applications.
-              </p>
-              <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: '1.8' }}>
-                Hard water passes through resin beads that exchange hardness ions with sodium ions, delivering perfectly soft water to every tap in your home or facility.
-              </p>
-            </div>
-            {/* Info boxes */}
+<section style={{ background: '#fff', padding: '60px 16px' }}>
+  <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '40px', alignItems: 'center' }}>
+      {/* Left: Text */}
+      <div>
+        <SectionHeading icon="🔹" title="What is a Water Softener?" />
+        <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: '1.8', marginBottom: '16px' }}>
+          A Water Softener removes hardness (Calcium &amp; Magnesium salts) using{' '}
+          <strong style={{ color: '#1a8fd1' }}>Ion Exchange Resin Technology</strong>, converting hard water into soft water suitable for domestic and industrial applications.
+        </p>
+        <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: '1.8' }}>
+          Hard water passes through resin beads that exchange hardness ions with sodium ions, delivering perfectly soft water to every tap in your home or facility.
+        </p>
+
+          {/* Info boxes */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               {[
                 { val: '< 50 ppm', label: 'Outlet Hardness' },
@@ -188,9 +193,14 @@ export default function WaterSoftener1() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
+      </div>
+
+      {/* Right: Image Slider */}
+      <WaterSoftenerSlider />
+    </div>
+  </div>
+</section>
+      
 
       {/* ── DOMESTIC PRODUCTS ── */}
       <section style={{ background: '#f9fafb', padding: '60px 16px' }}>
