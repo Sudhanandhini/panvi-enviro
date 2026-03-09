@@ -1,19 +1,45 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import TestimonialsSlider from "./TestimonialsSlider"
+import bgimg from "../assets/testimonial-bg-2.jpg"
+import bgimg1 from "../assets/project_bg.png"
+import ho from "../assets/ho.png"
+
+import img1 from "../assets/ETP-1.jpg"
+import img2 from "../assets/STP-1.jpg"
+import img3 from "../assets/ZLD-1.jpg"
+import img4 from "../assets/RO-plant.jpg"
+
+import img5 from "../assets/homepage-banner.jpg"
+import img6 from "../assets/homepage-banner2.jpg"
+import img7 from "../assets/banner4.jpg"
+import img8 from "../assets/banner2.jpg"
+import img9 from "../assets/banner3 (1).jpg"
+
 
 const slides = [
   {
-    bg: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1400&q=80',
+    bg: img5,
     title: 'Waste Water Treatment Plants',
     sub: 'STP • ETP • CETP • ZLD Solutions',
   },
   {
-    bg: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400&q=80',
+    bg: img6,
     title: 'Water Treatment Plant – WTP',
     sub: 'Industrial RO • Water Softener • DM Plant',
   },
   {
-    bg: 'https://images.unsplash.com/photo-1565118531796-763e5082d113?w=1400&q=80',
+    bg: img7,
+    title: 'Environmental Health & Safety',
+    sub: 'Operation & Maintenance • AMC Services',
+  },
+  {
+    bg: img8,
+    title: 'Water Treatment Plant – WTP',
+    sub: 'Industrial RO • Water Softener • DM Plant',
+  },
+  {
+    bg: img9,
     title: 'Environmental Health & Safety',
     sub: 'Operation & Maintenance • AMC Services',
   },
@@ -21,22 +47,22 @@ const slides = [
 
 const services = [
   {
-    img: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df7b?w=400&q=80',
+    img: img1,
     title: 'Effluent Treatment Plant (ETP)',
     desc: 'Effluent Treatment Plant is a facility in which a combination of various processes (e.g., physical, chemical and biological) are used to treat industrial wastewater and remove pollutants.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80',
+    img: img2,
     title: 'Sewage Treatment Plant (STP)',
     desc: 'Sewage is the waste generated from residential, institutional, commercial and industrial establishments. STP plans treats the sewage to make it fit for safe disposal, agriculture use or domestic use in toilets etc.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&q=80',
+    img:  img3,
     title: 'Zero Liquid Discharge Plant (ZLD)',
     desc: 'It is used to evaporate the residue water from MFF concentrated liquid and generate dry salt for disuse. MCC concentrated liquid have large amounts of water content which is not possible to dispose so salt dryer is used after MFF to reclaim water content from MFF concentrated liquid.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1565118531796-763e5082d113?w=400&q=80',
+    img:  img4,
     title: 'Industrial & Commercial RO Plant',
     desc: 'Effluent Treatment Plant is a facility in which a combination of various processes (e.g., physical chemical and biological) are used to treat industrial wastewater and remove pollutants.',
   },
@@ -53,7 +79,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Slider */}
-      <div className="relative h-72 md:h-96 overflow-hidden">
+      <div className="relative h-[500px] md:h-[500px] overflow-hidden">
         {slides.map((slide, i) => (
           <div
             key={i}
@@ -61,10 +87,10 @@ export default function Home() {
           >
             <img src={slide.bg} alt={slide.title} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-navy/60 flex flex-col items-center justify-center text-center px-4">
-              <h1 className="text-white text-3xl md:text-5xl font-bold mb-3" style={{fontFamily:'Raleway,sans-serif'}}>
+              {/* <h1 className="text-white text-3xl md:text-5xl font-bold mb-3" style={{fontFamily:'Raleway,sans-serif'}}>
                 {slide.title}
               </h1>
-              <p className="text-gray-200 text-lg">{slide.sub}</p>
+              <p className="text-gray-200 text-lg">{slide.sub}</p> */}
             </div>
           </div>
         ))}
@@ -110,7 +136,7 @@ export default function Home() {
           </div>
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80"
+              src={ho}
               alt="Water Treatment"
               className="w-full h-72 object-cover rounded"
             />
@@ -147,27 +173,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="footer-bg py-14 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="bg-nav-blue text-white text-xs font-semibold px-4 py-1 uppercase tracking-widest">TESTIMONIALS</span>
-          <h2 className="text-white text-3xl font-bold mt-4 mb-10" style={{fontFamily:'Raleway,sans-serif'}}>
-            Love from <span className="text-primary">Clients</span>
-          </h2>
-          <div className="bg-white/10 border border-white/20 rounded p-10 relative">
-            <p className="text-gray-300 italic text-lg leading-relaxed mb-6">
-              "Panvi Enviro Tech provided excellent service for our effluent treatment plant. Their team of professionals delivered quality work with timely execution and outstanding after-sales support."
-            </p>
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">JD</div>
-              <div className="text-left">
-                <p className="text-white font-semibold text-sm">John Doe</p>
-                <p className="text-gray-400 text-xs">Plant Manager, Hikal Ltd</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
+    {/* Testimonials */}
+<section className=" py-14 px-4"    style={{
+      backgroundImage: `linear-gradient(rgba(1,14,42,0.8), rgba(1,14,42,0.8)), url(${bgimg})`,
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",  
+    }}>
+  <div className="max-w-4xl mx-auto text-center "   >
+    <span className="bg-nav-blue text-white text-xs font-semibold px-4 py-1 uppercase tracking-widest">
+      TESTIMONIALS
+    </span>
+    <h2
+      className="text-white text-3xl font-bold mt-4 mb-10"
+    
+    >
+      Love from <span className="text-primary">Clients</span>
+    </h2>
+
+    <TestimonialsSlider />
+  </div>
+</section>
+
+
+<section className=" py-24 px-4"    style={{
+      backgroundImage: ` url(${bgimg1})`,
+      backgroundPosition: "bottom",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",  
+    }}>
+  <div className="max-w-4xl mx-auto text-center "   >
+    
+  </div>
+</section>
+
+
+
     </div>
   );
 }

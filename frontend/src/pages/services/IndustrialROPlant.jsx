@@ -1,11 +1,12 @@
 import ServiceLayout, { wtpServices } from '../../components/ServiceLayout';
+import img1 from "../../assets/RO-plant.jpg";
 
 const content = (
   <div>
     <div className="flex flex-col md:flex-row gap-8 mb-8">
       <div className="flex-shrink-0">
         <img
-          src="https://images.unsplash.com/photo-1565118531796-763e5082d113?w=550&q=80"
+          src={img1}
           alt="Industrial RO Plant"
           className="w-full md:w-80 h-60 object-cover"
         />

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
 const serviceOptions = [
   'Sewage Water Treatment Plant',
   'Effluent Treatment Plant',
@@ -20,13 +22,32 @@ export default function Contact() {
     firstName: '', lastName: '', email: '', phone: '',
     subject: 'Sewage Water Treatment Plant', message: ''
   });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState(null); // null | 'sending' | 'sent' | 'error'
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setForm({ firstName: '', lastName: '', email: '', phone: '', subject: 'Sewage Water Treatment Plant', message: '' });
+    setStatus('sending');
+    setErrorMsg('');
+    try {
+      const res = await fetch(`${API_BASE}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('sent');
+        setForm({ firstName: '', lastName: '', email: '', phone: '', subject: 'Sewage Water Treatment Plant', message: '' });
+        setTimeout(() => setStatus(null), 4000);
+      } else {
+        setStatus('error');
+        setErrorMsg(data.error || 'Something went wrong.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
+    }
   };
 
   return (
@@ -51,9 +72,14 @@ export default function Contact() {
               </h2>
             </div>
 
-            {sent && (
+            {status === 'sent' && (
               <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded mb-4 text-sm">
                 Thank you! Your message has been sent successfully.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4 text-sm">
+                {errorMsg}
               </div>
             )}
 
@@ -117,9 +143,10 @@ export default function Contact() {
               />
               <button
                 type="submit"
-                className="bg-secondary text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-secondary-light transition-colors duration-200 w-full"
+                disabled={status === 'sending'}
+                className="bg-secondary text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-secondary-light transition-colors duration-200 w-full disabled:opacity-60"
               >
-                {sent ? 'Message Sent!' : 'Submit Now'}
+                {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message Sent!' : 'Submit Now'}
               </button>
             </form>
           </div>

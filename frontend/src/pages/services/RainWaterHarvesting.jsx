@@ -1,11 +1,12 @@
 import ServiceLayout, { wasteWaterServices } from '../../components/ServiceLayout';
+import img1 from "../../assets/rainwater.jpg";
 
 const content = (
   <div>
     <div className="flex flex-col md:flex-row gap-8 mb-8">
       <div className="flex-shrink-0">
         <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=550&q=80"
+          src={img1}
           alt="Rain Water Harvesting System"
           className="w-full md:w-80 h-60 object-cover"
         />

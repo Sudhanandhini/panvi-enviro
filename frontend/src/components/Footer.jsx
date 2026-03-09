@@ -1,14 +1,35 @@
 import { useState } from 'react';
 
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
 export default function Footer() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState(null); // null | 'sending' | 'sent' | 'error'
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: '', email: '', subject: '', message: '' });
+    setStatus('sending');
+    setErrorMsg('');
+    try {
+      const res = await fetch(`${API_BASE}/api/quick-enquiry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('sent');
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus(null), 4000);
+      } else {
+        setStatus('error');
+        setErrorMsg(data.error || 'Something went wrong.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMsg('Network error. Please try again.');
+    }
   };
 
   const hours = [
@@ -69,11 +90,18 @@ export default function Footer() {
               onChange={e => setForm({...form, message: e.target.value})}
               className="bg-white text-gray-800 text-sm px-3 py-2 w-full outline-none resize-none"
             />
+            {status === 'sent' && (
+              <p className="text-green-400 text-xs">Enquiry sent successfully!</p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-400 text-xs">{errorMsg}</p>
+            )}
             <button
               type="submit"
-              className="bg-primary text-white px-6 py-2 text-sm font-semibold hover:bg-primary-dark transition-colors duration-200 uppercase tracking-wide"
+              disabled={status === 'sending'}
+              className="bg-primary text-white px-6 py-2 text-sm font-semibold hover:bg-primary-dark transition-colors duration-200 uppercase tracking-wide disabled:opacity-60"
             >
-              {sent ? 'Sent!' : 'Send Message'}
+              {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Sent!' : 'Send Message'}
             </button>
           </form>
         </div>

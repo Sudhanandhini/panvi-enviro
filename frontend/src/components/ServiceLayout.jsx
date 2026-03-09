@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import pdf  from "../assets/e-broucher.pdf"
 
 // Sidebar menu groups - same structure as the header dropdown
 const wasteWaterServices = [
@@ -66,7 +67,7 @@ export default function ServiceLayout({ title, sidebarItems, content }) {
               Benefit of the socie where we oper ate success for the website done
             </p>
             <a
-              href="#"
+              href={pdf} target="_black"
               className="inline-block bg-nav-blue text-white text-xs font-bold px-5 py-2 uppercase tracking-wider hover:bg-blue-500 transition-colors"
             >
               DOWNLOAD

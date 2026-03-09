@@ -8,6 +8,16 @@ import Clients from './pages/Clients';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 
+// Service sub-pages
+import SewageTreatmentPlant from './pages/services/SewageTreatmentPlant';
+import EffluentTreatmentPlant from './pages/services/EffluentTreatmentPlant';
+import CommonEffluentTreatment from './pages/services/CommonEffluentTreatment';
+import ZeroLiquidDischarge from './pages/services/ZeroLiquidDischarge';
+import RainWaterHarvesting from './pages/services/RainWaterHarvesting';
+import IndustrialROPlant from './pages/services/IndustrialROPlant';
+import WaterSoftener from './pages/services/WaterSoftener';
+import DemineralisationPlant from './pages/services/DemineralisationPlant';
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -21,6 +31,18 @@ export default function App() {
             <Route path="/clients" element={<Clients />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* Waste Water Treatment sub-pages */}
+            <Route path="/service/sewage-treatment-plant" element={<SewageTreatmentPlant />} />
+            <Route path="/service/effluent-treatment-plant" element={<EffluentTreatmentPlant />} />
+            <Route path="/service/common-effluent-treatment-plant" element={<CommonEffluentTreatment />} />
+            <Route path="/service/zero-liquid-discharge-plant" element={<ZeroLiquidDischarge />} />
+            <Route path="/service/rain-water-harvesting-system" element={<RainWaterHarvesting />} />
+
+            {/* Water Treatment Plant sub-pages */}
+            <Route path="/service/industrial-commercial-ro-plant" element={<IndustrialROPlant />} />
+            <Route path="/service/water-softener" element={<WaterSoftener />} />
+            <Route path="/service/demineralisation-plant" element={<DemineralisationPlant />} />
           </Routes>
         </main>
         <Footer />

@@ -1,11 +1,12 @@
 import ServiceLayout, { wasteWaterServices } from '../../components/ServiceLayout';
+import img1 from "../../assets/ETP-1.jpg";
 
 const content = (
   <div>
     <div className="flex flex-col md:flex-row gap-8 mb-8">
       <div className="flex-shrink-0">
         <img
-          src="https://images.unsplash.com/photo-1581093458791-9f3c3900df7b?w=550&q=80"
+          src={img1}
           alt="Effluent Treatment Plant"
           className="w-full md:w-80 h-60 object-cover"
         />
