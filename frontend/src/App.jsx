@@ -17,6 +17,8 @@ import RainWaterHarvesting from './pages/services/RainWaterHarvesting';
 import IndustrialROPlant from './pages/services/IndustrialROPlant';
 import WaterSoftener from './pages/services/WaterSoftener';
 import DemineralisationPlant from './pages/services/DemineralisationPlant';
+import DomesticROPurifiers from './pages/DomesticROPurifiers';
+import WaterSoftener1 from './pages/WaterSoftener1';
 
 export default function App() {
   return (
@@ -31,6 +33,9 @@ export default function App() {
             <Route path="/clients" element={<Clients />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/water-soft" element={<WaterSoftener1 />} />
+              <Route path="/domestic" element={<DomesticROPurifiers />} />
 
             {/* Waste Water Treatment sub-pages */}
             <Route path="/service/sewage-treatment-plant" element={<SewageTreatmentPlant />} />
@@ -38,6 +43,7 @@ export default function App() {
             <Route path="/service/common-effluent-treatment-plant" element={<CommonEffluentTreatment />} />
             <Route path="/service/zero-liquid-discharge-plant" element={<ZeroLiquidDischarge />} />
             <Route path="/service/rain-water-harvesting-system" element={<RainWaterHarvesting />} />
+            
 
             {/* Water Treatment Plant sub-pages */}
             <Route path="/service/industrial-commercial-ro-plant" element={<IndustrialROPlant />} />
