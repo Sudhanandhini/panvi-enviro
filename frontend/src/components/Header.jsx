@@ -42,10 +42,10 @@ const menuData = [
       { label: 'DEMINERALISATION PLANT/DM PLANT-MB PLANT', path: '/service/demineralisation-plant' },
     ],
   },
-  { label: 'OPERATION AND MAINTENANCE (O & M) , AMC', path: '/service/operation-maintenance' },
-  { label: 'CALIBRATIONS AND SERVICES', path: '/service/calibrations-services' },
-  { label: 'SUPPLY OF SPARES & TROUBLE SHOOTING SERVICES AND CHEMICALS', path: '/service/supply-spares' },
-  { label: 'REVAMPING AND OPTIMIZATION', path: '/service/revamping-optimization' },
+  { label: 'OPERATION AND MAINTENANCE (O & M) , AMC', path: '/project-services' },
+  { label: 'CALIBRATIONS AND SERVICES', path: '/project-services' },
+  { label: 'SUPPLY OF SPARES & TROUBLE SHOOTING SERVICES AND CHEMICALS', path: '/project-services' },
+  { label: 'REVAMPING AND OPTIMIZATION', path: '/project-services' },
 ];
 
 export default function Header() {
@@ -163,25 +163,50 @@ export default function Header() {
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left: main items */}
-                  <div className="bg-white w-64 py-1 flex-shrink-0">
-                    {menuData.map((item, i) => (
-                      <div
-                        key={i}
-                        className={`flex items-center justify-between px-4 py-3 text-xs font-bold cursor-pointer border-b border-gray-100 transition-colors ${
-                          activeChild?.label === item.label ? 'text-primary bg-gray-50' : 'text-gray-700 hover:text-primary hover:bg-gray-50'
-                        }`}
-                        onMouseEnter={() => setActiveChild(item)}
-                      >
-                        <span className="leading-tight">{item.label}</span>
-                        {item.children && (
-                          <svg className="w-3 h-3 flex-shrink-0 ml-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
-                          </svg>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+               <div className="bg-white w-64 py-1 flex-shrink-0">
+  {menuData.map((item, i) => {
 
+    // If item has children → show hover menu
+    if (item.children) {
+      return (
+        <div
+          key={i}
+          className={`flex items-center justify-between px-4 py-3 text-xs font-bold cursor-pointer border-b border-gray-100 transition-colors ${
+            activeChild?.label === item.label
+              ? "text-primary bg-gray-50"
+              : "text-gray-700 hover:text-primary hover:bg-gray-50"
+          }`}
+          onMouseEnter={() => setActiveChild(item)}
+        >
+          <span className="leading-tight">{item.label}</span>
+
+          <svg
+            className="w-3 h-3 flex-shrink-0 ml-2 text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/>
+          </svg>
+        </div>
+      );
+    }
+
+    // If no children → direct link
+    return (
+      <Link
+        key={i}
+        to={item.path}
+        onClick={() => {
+          setDropdownOpen(false);
+          setActiveChild(null);
+        }}
+        className="block px-4 py-3 text-xs font-bold text-gray-700 hover:text-primary hover:bg-gray-50 border-b border-gray-100 transition-colors uppercase"
+      >
+        {item.label}
+      </Link>
+    );
+  })}
+</div>
                   {/* Right: children */}
                   {activeChild?.children && (
                     <div className="bg-white border-l border-gray-200 w-72 py-1 flex-shrink-0">
@@ -246,7 +271,7 @@ export default function Header() {
               <NavLink to="/clients" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-white text-sm font-medium hover:text-primary">Clients</NavLink>
               <NavLink to="/gallery" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-white text-sm font-medium hover:text-primary">Gallery</NavLink>
               <NavLink to="/contact" onClick={() => setMobileOpen(false)} className="block px-4 py-2 text-white text-sm font-medium hover:text-primary">Contact</NavLink>
-              <a href="#" className="block mt-2 mx-4 bg-secondary text-white px-4 py-2 text-sm font-semibold text-center">Download E-Broucher</a>
+              <a href={pdf} target="_blank" className="block mt-2 mx-4 bg-secondary text-white px-4 py-2 text-sm font-semibold text-center">Download E-Broucher</a>
             </div>
           )}
         </div>

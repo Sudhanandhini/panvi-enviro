@@ -5,25 +5,25 @@ const testimonials = [
   {
     text: "A small river named Duden flows by their place and supplies it with the necessaryregelialia. It is a paradisematic country, in which",
     name: "John Doe",
-    role: "Plant Manager, Hikal Ltd",
+    role: "Plant Manager",
     initials: "JD",
   },
   {
     text: "We are extremely satisfied with the water treatment solution provided by Panvi Enviro Tech. They understood our requirements and delivered a cost-effective, reliable system on schedule.",
     name: "Ramesh Patil",
-    role: "Operations Head, Cipla Ltd",
+    role: "Operations Head",
     initials: "RP",
   },
   {
     text: "The team at Panvi Enviro Tech is highly knowledgeable and professional. Their RO plant installation was seamless, and the post-installation support has been exceptional.",
     name: "Sneha Kulkarni",
-    role: "Facility Manager, Thermax India",
+    role: "Facility Manager",
     initials: "SK",
   },
   {
     text: "Panvi Enviro Tech has been our trusted partner for industrial wastewater management. Their expertise and prompt response time make them stand out from the competition.",
     name: "Amit Shah",
-    role: "Director, Aarti Industries",
+    role: "Director",
     initials: "AS",
   },
 ];
@@ -71,9 +71,9 @@ function TestimonialsSlider() {
 
   return (
     <div className="relative"   >
-      {/* Slide */}
+      {/* Slide bg-white/10 border border-white/20 rounded*/}
       <div
-        className="bg-white/10 border border-white/20 rounded p-10 relative overflow-hidden"
+        className=" p-10 relative overflow-hidden"
         style={slideStyle}
       >
         {/* Quote icon */}

@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Slider */}
-      <div className="relative h-[500px] md:h-[500px] overflow-hidden">
+      <div className="relative h-[400px] md:h-[600px] overflow-hidden">
         {slides.map((slide, i) => (
           <div
             key={i}
@@ -115,17 +115,33 @@ export default function Home() {
       {/* About Section */}
       <section className="py-14 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+
+   <div className="relative">
+            <img
+              src={ho}
+              alt="Water Treatment"
+              className="w-full h-72 object-cover rounded"
+            />
+            {/* <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary flex items-center justify-center">
+              <div className="text-white text-center">
+                <div className="font-black text-2xl">15+</div>
+                <div className="text-xs">Years Exp.</div>
+              </div>
+            </div> */}
+          </div>
+
           <div>
             <span className="bg-nav-blue text-white text-xs font-semibold px-4 py-1 uppercase tracking-widest">ABOUT US</span>
             <h2 className="text-2xl md:text-3xl font-bold mt-4 mb-4" style={{fontFamily:'Raleway,sans-serif'}}>
               We do things <span className="text-primary italic">differently</span>
             </h2>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            <p className="text-gray-600 text-md leading-relaxed mb-4">
               <strong className="text-nav-blue">PANVI</strong> Serve is a Environmental Health and Safety service provider and offering various kind of high quality services in and around Karnataka. The team consists of qualified and well trained professionals with extensive experience.
             </p>
             <div className="grid grid-cols-2 gap-3 mb-6">
               {['Best Materials','Latest Design','Digital Mechines','Best Materials'].map((f,i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                <div key={i} className="flex items-center gap-2 text-md text-gray-700">
                   <span className="text-primary text-lg">✦</span> {f}
                 </div>
               ))}
@@ -134,19 +150,7 @@ export default function Home() {
               Learn More
             </Link>
           </div>
-          <div className="relative">
-            <img
-              src={ho}
-              alt="Water Treatment"
-              className="w-full h-72 object-cover rounded"
-            />
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary flex items-center justify-center">
-              <div className="text-white text-center">
-                <div className="font-black text-2xl">15+</div>
-                <div className="text-xs">Years Exp.</div>
-              </div>
-            </div>
-          </div>
+       
         </div>
       </section>
 
@@ -164,8 +168,8 @@ export default function Home() {
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover" style={{minHeight:'140px'}} />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-secondary text-sm mb-2">{s.title}</h3>
-                  <p className="text-gray-600 text-xs leading-relaxed">{s.desc}</p>
+                  <h3 className="font-bold text-secondary text-md mb-2">{s.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}

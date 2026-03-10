@@ -1,7 +1,45 @@
 import about from "../assets/about-image-side.jpg"
 import vis from "../assets/our-mission.jpg"
 import mis from "../assets/our-vision.jpg"
+import { useState, useEffect, useRef } from "react"
 
+function useCounterAnimation(target, duration = 2000, start = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+  return count;
+}
+
+function StatCard({ label }) {
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
+  const count = useCounterAnimation(100, 1800, started);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="border-2 border-gray-200 rounded p-5 text-center hover:border-primary transition-colors duration-200">
+      <div className="text-primary font-black text-3xl mb-2">{count}%</div>
+      <p className="text-gray-600 text-sm">{label}</p>
+    </div>
+  );
+}
 
 export default function CompanyProfile() {
   const stats = [
@@ -54,10 +92,7 @@ export default function CompanyProfile() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {stats.map((s, i) => (
-              <div key={i} className="border-2 border-gray-200 rounded p-5 text-center hover:border-primary transition-colors duration-200">
-                <div className="text-primary font-black text-3xl mb-2">100%</div>
-                <p className="text-gray-600 text-sm">{s.label}</p>
-              </div>
+              <StatCard key={i} label={s.label} />
             ))}
           </div>
         </div>
