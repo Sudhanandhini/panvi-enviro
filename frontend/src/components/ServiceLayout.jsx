@@ -7,7 +7,7 @@ const wasteWaterServices = [
   { label: 'Effluent Treatment Plant (ETP)', path: '/service/effluent-treatment-plant' },
   { label: 'Common Effluent Treatment Plant (CETP)', path: '/service/common-effluent-treatment-plant' },
   { label: 'Zero Liquid Discharge Plant (ZLD)', path: '/service/zero-liquid-discharge-plant' },
-  { label: 'Rain Water Harvesting System', path: '/service/rain-water-harvesting-system' },
+  // { label: 'Rain Water Harvesting System', path: '/service/rain-water-harvesting-system' },
 ];
 
 const wtpServices = [

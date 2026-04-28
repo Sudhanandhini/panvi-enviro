@@ -7,9 +7,10 @@ const serviceOptions = [
   'Effluent Treatment Plant',
   'Common Effluent Treatment Plant',
   'Zero Liquid Discharge Plant',
-  'Rain Water Harvesting System',
+  // 'Rain Water Harvesting System',
   'Industrial & Commercial RO Plant',
   'Water Softener',
+  'Domestic RO Water Purifiers',
   'Demineralisation Plant',
   'Operation and Maintenance',
   'Calibrations and Services',
@@ -161,9 +162,9 @@ export default function Contact() {
               <div className="bg-nav-blue text-white text-xs font-semibold px-3 py-1 inline-block mb-3">Address :</div>
               <div className="bg-blue-50 border border-blue-100 p-4 rounded">
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  #105, 8th cross, Vaishnavi Nagar,<br />
-                  Babasahebara palya, Kengeri, Bengaluru,<br />
-                  Karnataka 560060
+                  #105, 8th Cross,  <br />
+                 Vaishnavi Nagar, Kengeri,<br />
+                 Bangalore – 560060
                 </p>
                 <p className="text-sm text-gray-700 mt-2">
                   <strong>Landmark:</strong> Mysore road Kengeri Check-post
@@ -174,7 +175,7 @@ export default function Contact() {
             <div className="mb-5">
               <h4 className="text-primary font-semibold text-sm mb-2">Business Head :</h4>
               <p className="text-sm text-gray-700 font-medium">Mr. Shivakumar N</p>
-              <p className="text-sm text-nav-blue mt-1">📞 +91 99450 96328</p>
+              <p className="text-sm text-nav-blue mt-1">📞 +91 9036052837 / 38 / 39</p>
             </div>
 
             <div>

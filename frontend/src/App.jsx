@@ -19,6 +19,8 @@ import WaterSoftener from './pages/services/WaterSoftener';
 import DemineralisationPlant from './pages/services/DemineralisationPlant';
 import DomesticROPurifiers from './pages/DomesticROPurifiers';
 import WaterSoftener1 from './pages/WaterSoftener1';
+import DomesticSoftener from './pages/services/DomesticSoftener';
+import DomesticROPurifier from './pages/services/DomesticROPurifier';
 
 export default function App() {
   return (
@@ -49,6 +51,10 @@ export default function App() {
             <Route path="/service/industrial-commercial-ro-plant" element={<IndustrialROPlant />} />
             <Route path="/service/water-softener" element={<WaterSoftener />} />
             <Route path="/service/demineralisation-plant" element={<DemineralisationPlant />} />
+
+            {/* Domestic Softener & RO Purifier sub-pages */}
+            <Route path="/service/domestic-softener" element={<DomesticSoftener />} />
+            <Route path="/service/domestic-ro-purifier" element={<DomesticROPurifier />} />
           </Routes>
         </main>
         <Footer />

@@ -30,7 +30,7 @@ const menuData = [
       { label: 'EFFLUENT TREATMENT PLANT (ETP)', path: '/service/effluent-treatment-plant' },
       { label: 'COMMON EFFLUENT TREATMENT PLANT (CETP)', path: '/service/common-effluent-treatment-plant' },
       { label: 'ZERO LIQUID DISCHARGE PLANT (ZLD)', path: '/service/zero-liquid-discharge-plant' },
-      { label: 'RAIN WATER HARVESTING SYSTEM', path: '/service/rain-water-harvesting-system' },
+      // { label: 'RAIN WATER HARVESTING SYSTEM', path: '/service/rain-water-harvesting-system' },
     ],
   },
   {
@@ -42,8 +42,16 @@ const menuData = [
       { label: 'DEMINERALISATION PLANT/DM PLANT-MB PLANT', path: '/service/demineralisation-plant' },
     ],
   },
+  {
+    label: 'DOMESTIC SOFTENER & RO PURIFIER',
+    path: '/project-services',
+    children: [
+      { label: 'DOMESTIC SOFTENER', path: '/service/domestic-softener' },
+      { label: 'DOMESTIC RO PURIFIER', path: '/service/domestic-ro-purifier' },
+    ],
+  },
   { label: 'OPERATION AND MAINTENANCE (O & M) , AMC', path: '/project-services' },
-  { label: 'CALIBRATIONS AND SERVICES', path: '/project-services' },
+  // { label: 'CALIBRATIONS AND SERVICES', path: '/project-services' },
   { label: 'SUPPLY OF SPARES & TROUBLE SHOOTING SERVICES AND CHEMICALS', path: '/project-services' },
   { label: 'REVAMPING AND OPTIMIZATION', path: '/project-services' },
 ];

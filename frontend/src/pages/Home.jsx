@@ -68,6 +68,19 @@ const services = [
   },
 ];
 
+  const certifications = [
+    'ISO 9001:2015 Certified',
+    'ISO 14001:2015 Certified',
+    'MSME Registered',
+    'GST',
+    'PAN',
+    'AOA',
+    'MQeF',
+    'EPFO',
+    'IEC – Import & Export',
+    'All documents government verified certificate.',
+  ];
+
 export default function Home() {
   const [current, setCurrent] = useState(0);
 
@@ -176,6 +189,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+        {/* ── Certifications & License ── */}
+       <section className='py-14 px-4'>
+         <div className="max-w-6xl mx-auto">
+        <div className="mb-14">
+          <h2 className="text-primary text-2xl font-bold mb-6" style={{ fontFamily: 'Raleway, sans-serif' }}>Certifications &amp; License</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {certifications.map((cert, i) => (
+              <div key={i} className="border-2 border-gray-200 rounded-lg p-3 text-center hover:border-primary transition-colors duration-200">
+                <div className="text-2xl mb-1">🏅</div>
+                <p className="text-gray-700 text-xs font-medium">{cert}</p>
+              </div>
+            ))}
+          </div>
+        </div></div>
+</section>
 
      
     {/* Testimonials */}

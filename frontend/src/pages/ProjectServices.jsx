@@ -29,7 +29,7 @@ export default function ProjectServices() {
     { label: 'Effluent Treatment Plant (ETP)', img: img2 },
     { label: 'Common Effluent Treatment Plant (CETP)', img: img3 },
     { label: 'Zero Liquid Discharge Plant (ZLD)', img: img4 },
-    { label: 'Rain Water Harvesting System', img: img5 },
+    // { label: 'Rain Water Harvesting System', img: img5 },
   ];
 
   const waterTreatment = [

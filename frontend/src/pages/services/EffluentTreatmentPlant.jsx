@@ -1,5 +1,5 @@
 import ServiceLayout, { wasteWaterServices } from '../../components/ServiceLayout';
-import img1 from "../../assets/ETP-1.jpg";
+import img1 from "../../assets/etp.png";
 
 const content = (
   <div>
